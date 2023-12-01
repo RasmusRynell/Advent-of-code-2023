@@ -2,7 +2,7 @@ import os
 import sys
 import requests
 
-year = '2022'
+year = '2023'
 
 
 def get_input(problem):
@@ -13,8 +13,10 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         problem = sys.argv[1]
         
+    override = False
     if len(sys.argv) > 2:
         override = sys.argv[2]
+        
 
     if not os.path.exists('problems') or override:
         os.makedirs('problems', exist_ok=True)

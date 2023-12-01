@@ -63,8 +63,8 @@ def get_nice_time(func_name, time):
 
 def print_time(func_name, time):
     time_str = get_nice_time(func_name, time)
-    print(f"{colorama.Fore.GREEN}Execution time of '{func_name}': {time_str}{colorama.Style.RESET_ALL}")
+    print(f"{colorama.Fore.YELLOW}Execution time of '{func_name}': {time_str}{colorama.Style.RESET_ALL}")
 
 def print_average_time(func_name, avg_time, calls):
     time_str = get_nice_time(func_name, avg_time)
-    print(f"{colorama.Fore.GREEN}Average execution time of '{func_name}': {time_str} ({calls} calls){colorama.Style.RESET_ALL}")
+    print(f"{colorama.Fore.YELLOW}Average execution time of '{func_name}': {time_str} ({calls} calls){colorama.Style.RESET_ALL}")
