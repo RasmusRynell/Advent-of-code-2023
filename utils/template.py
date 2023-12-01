@@ -4,17 +4,17 @@ import time
 import colorama
 from pathlib import Path
 
+# fmt: off
 sys.path.append(str(Path(os.path.dirname(os.path.dirname(
     os.path.abspath(__file__)))).parent / 'utils/'))
 from utils import time_function, average_time_function
+# fmt: on
+
 
 @time_function
 def solve(input_data):
     result = input_data
     return result
-
-
-
 
 
 
