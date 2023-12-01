@@ -1,2 +1,4 @@
 requests
 colorama
+advent-of-code-data
+pathlib

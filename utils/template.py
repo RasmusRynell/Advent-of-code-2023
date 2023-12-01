@@ -1,9 +1,12 @@
+import os
 import sys
 import time
 import colorama
+from pathlib import Path
 
+sys.path.append(str(Path(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__)))).parent / 'utils/'))
 from utils import time_function, average_time_function
-
 
 @time_function
 def solve(input_data):
@@ -22,16 +25,11 @@ def solve(input_data):
 
 
 
-
-
-
-
-
-
 @time_function
 def parse_input_lines(lines):
     result = lines
     return result
+
 
 if __name__ == '__main__':
     with open(sys.argv[1], 'r') as file:
