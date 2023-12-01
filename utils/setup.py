@@ -7,8 +7,7 @@ year = '2023'
 
 
 def get_input(day):
-    TOKEN = os.getenv('AOC_SESSION')
-    return get_data(TOKEN, day=int(day), year=int(year))
+    return get_data(os.getenv('AOC_SESSION'), day=int(day), year=int(year))
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -17,7 +16,8 @@ if __name__ == '__main__':
     override = False
     if len(sys.argv) > 2:
         override = sys.argv[2]
-        
+    
+    input_txt = get_input(day)
 
     if not os.path.exists('problems') or override:
         os.makedirs('problems', exist_ok=True)
@@ -37,7 +37,6 @@ if __name__ == '__main__':
             f.write('')
 
     if not os.path.exists('problems/day_' + day + '/inputs/input.txt') or override :
-        input_txt = get_input(day)
         with open('problems/day_' + day + '/inputs/input.txt', 'w') as f:
             f.write(input_txt)
 
