@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     print(
         f"=== For \"{sys.argv[1]}\" the solution for part 1 is:",
-        f"{colorama.Fore.GREEN}{solve_1(input_data, constraints)}{colorama.Style.RESET_ALL} ===")
+        f"{colorama.Fore.GREEN}{solve_1(input_data)}{colorama.Style.RESET_ALL} ===")
 
     print(
         f"=== For \"{sys.argv[1]}\" the solution for part 2 is:",

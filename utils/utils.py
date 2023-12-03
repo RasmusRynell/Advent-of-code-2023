@@ -39,7 +39,7 @@ def average_time_function(func):
     def print_avg():
         if calls > 0:
             avg_time = total_time / calls
-            print_average_time(func.__name__, avg_time, calls)
+            print_average_time(func.__name__, avg_time, calls, round(total_time, 5))
 
     atexit.register(print_avg)
     return wrapper
@@ -65,6 +65,6 @@ def print_time(func_name, time):
     time_str = get_nice_time(func_name, time)
     print(f"{colorama.Fore.YELLOW}Execution time of '{func_name}': {time_str}{colorama.Style.RESET_ALL}")
 
-def print_average_time(func_name, avg_time, calls):
+def print_average_time(func_name, avg_time, calls, total_time):
     time_str = get_nice_time(func_name, avg_time)
-    print(f"{colorama.Fore.YELLOW}Average execution time of '{func_name}': {time_str} ({calls} calls){colorama.Style.RESET_ALL}")
+    print(f"{colorama.Fore.YELLOW}Average execution time of '{func_name}': {total_time} s ({calls} calls {time_str} each){colorama.Style.RESET_ALL}")
