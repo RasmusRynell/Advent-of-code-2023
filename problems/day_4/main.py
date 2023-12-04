@@ -18,7 +18,7 @@ def solve_1(input_data):
         result = 0
         for number in game['my']:
             if number in game['correct']:
-                result = 1 if result else result * 2
+                result = 1 if not result else result * 2
         return result
 
     return sum([wins(game) for game in input_data])
