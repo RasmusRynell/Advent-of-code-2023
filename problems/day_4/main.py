@@ -14,21 +14,18 @@ from utils import time_function, average_time_function
 
 @time_function
 def solve_1(input_data):
-    result = 0
-    for game in input_data:
-        curr = 0
+    def wins(game):
+        result = 0
         for number in game['my']:
             if number in game['correct']:
-                if curr:
-                    curr = curr*2
-                else:
-                    curr = 1
-        result += curr
-    return result
+                result = 1 if result else result * 2
+        return result
+
+    return sum([wins(game) for game in input_data])
+
 
 @time_function
 def solve_2(input_data):
-    wins = []
     instances = [1 for _ in input_data]
     for i, game in enumerate(input_data):
         for _ in range(1, instances[i]+1):
@@ -36,15 +33,9 @@ def solve_2(input_data):
             for number in game['my']:
                 if number in game['correct']:
                     num_of_correct += 1
-            wins.append(num_of_correct)
             for j in range(1, num_of_correct+1):
                 instances[i+j] += 1
     return sum(instances)
-
-
-
-
-
 
 
 @time_function
@@ -55,7 +46,7 @@ def parse_input_lines(lines):
         games.append({
             'correct': [int(x) for x in l[0].split()],
             'my': [int(x) for x in l[1].split()]
-            })
+        })
     return games
 
 
