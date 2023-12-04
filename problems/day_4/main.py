@@ -29,20 +29,17 @@ def solve_1(input_data):
 @time_function
 def solve_2(input_data):
     wins = []
-    index = 0
-    for game in input_data:
-        num_of_correct = 0
-        for number in game['my']:
-            if number in game['correct']:
-                num_of_correct += 1
-        wins.append(num_of_correct)
-    result = wins.copy()
-    for i, win in enumerate(wins):
-        for j in range(win):
-            result[i+j] += 1
-    print(result)
-    return sum(result)
-
+    instances = [1 for _ in input_data]
+    for i, game in enumerate(input_data):
+        for _ in range(1, instances[i]+1):
+            num_of_correct = 0
+            for number in game['my']:
+                if number in game['correct']:
+                    num_of_correct += 1
+            wins.append(num_of_correct)
+            for j in range(1, num_of_correct+1):
+                instances[i+j] += 1
+    return sum(instances)
 
 
 
