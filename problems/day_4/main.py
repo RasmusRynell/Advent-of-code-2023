@@ -36,12 +36,12 @@ def solve_2(input_data):
             if number in game['correct']:
                 num_of_correct += 1
         wins.append(num_of_correct)
-    result = 0
+    result = wins.copy()
     for i, win in enumerate(wins):
-        result += win
         for j in range(win):
-            result += wins[i+j]
-    return result
+            result[i+j] += 1
+    print(result)
+    return sum(result)
 
 
 
