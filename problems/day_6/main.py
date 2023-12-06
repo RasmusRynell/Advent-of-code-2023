@@ -35,25 +35,35 @@ def solve_1(input_data):
 
 @time_function
 def solve_2(input_data):
-    print(input_data)
     return solve_1(input_data)
 
 
+def parse_input_lines_1(lines):
+    times = [int(x) for x in lines[0].split(':')[1].split()]
+    distances = [int(x) for x in lines[1].split(':')[1].split()]
+    return (times, distances)
+
+
 @time_function
-def parse_input_lines(lines):
+def parse_input_lines_2(lines):
     times = [int(''.join([x for x in lines[0].split(':')[1].replace(" ", "")]))]
-    distances = [int(''.join([x for x in lines[1].split(':')[1].replace(" ", "")]))]
+    distances = [
+        int(''.join([x for x in lines[1].split(':')[1].replace(" ", "")]))]
     return (times, distances)
 
 
 if __name__ == '__main__':
     with open(sys.argv[1], 'r') as file:
-        input_data = parse_input_lines([x.strip() for x in file.readlines()])
+        in_data = file.readlines()
+        input_data_part1 = parse_input_lines_1([x.strip() for x in in_data])
+        print(input_data_part1)
+        input_data_part2 = parse_input_lines_2([x.strip() for x in in_data])
+        print(input_data_part2)
 
-    # print(
-    #     f"=== For \"{sys.argv[1]}\" the solution for part 1 is:",
-    #     f"{colorama.Fore.GREEN}{solve_1(input_data)}{colorama.Style.RESET_ALL} ===")
+    print(
+        f"=== For \"{sys.argv[1]}\" the solution for part 1 is:",
+        f"{colorama.Fore.GREEN}{solve_1(input_data_part1)}{colorama.Style.RESET_ALL} ===")
 
     print(
         f"=== For \"{sys.argv[1]}\" the solution for part 2 is:",
-        f"{colorama.Fore.GREEN}{solve_2(input_data)}{colorama.Style.RESET_ALL} ===")
+        f"{colorama.Fore.GREEN}{solve_2(input_data_part2)}{colorama.Style.RESET_ALL} ===")
